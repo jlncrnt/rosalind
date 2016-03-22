@@ -1,6 +1,9 @@
 /*
-    I had to do it in C as a use recursive function. It is
-    slow in python and take a huge amount of memory...
+    I had to do it in C as I use recursive functions. It is
+    slow in python and take a huge amount of memory... I think
+    recursion is elegant but not very efficient in this case.
+    I had to make many tries as this code doesn't process fast enough
+    to finish before challenge's timout, if the values are huge.
 */
 
 #include <stdio.h>
@@ -14,7 +17,6 @@ const static char n =35;
 // Number of offsping at each Generation
 const static char k = 2;
 
-// The number is huge
 // m = grown up of not
 // g is actual generation
 long long rabbit(m,g) {
