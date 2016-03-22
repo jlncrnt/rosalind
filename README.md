@@ -1,3 +1,2 @@
-# This repo is used to store Rosalind's excercises
+# This repo is used to store my solutions to Rosalind's excercises
 
-A notebook per excercise.
