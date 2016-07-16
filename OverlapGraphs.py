@@ -1,15 +1,15 @@
-from pprint import pprint
+from Bio import SeqIO
 
-labels = []
-seqs = []
+# Generator over seqs
+seqs = SeqIO.parse(open("OverlapGraphsData.txt"),'fasta')
 
-with open("OverlapGraphsData.txt") as data:
-    l = data.readline().rstrip()
-    if l.startswith('>'):
-        labels.append(l)
-    else:
-        seqs.append(l)
-                
-dict = dict(zip(labels,seqs))
+# Dict of (seqID,(seqSTART,seqEND)) foreach seq
+ends = {e.id:(str(e.seq)[  :3], \
+              str(e.seq)[-3: ]) for e in seqs}
 
-pprint(labels)
+# For all prepared seqs, check all other prepared seq.
+# if end of outer loop label match start of inner loop label,
+# and those are not from the same seq, print the label tuple.
+for mlabel,(mstart,mend) in ends.items():
+    [print(mlabel,label) for label,(start,end) in ends.items() \
+            if (mend==start) and (label!=mlabel)]
