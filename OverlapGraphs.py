@@ -12,4 +12,4 @@ ends = {e.id:(str(e.seq)[  :3], \
 # and those are not from the same seq, print the label tuple.
 for mlabel,(mstart,mend) in ends.items():
     [print(mlabel,label) for label,(start,end) in ends.items() \
-            if (mend==start) and (label!=mlabel)]
+        if (mend==start) and (label!=mlabel)]

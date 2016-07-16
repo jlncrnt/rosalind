@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from itertools import permutations
 from math import factorial
 
@@ -16,5 +18,5 @@ print(factorial(n))
 # Print result with format required
 for e in perms:
     for i in e:
-        print(i,end=' ')
+        print(i, end="")
     print()
