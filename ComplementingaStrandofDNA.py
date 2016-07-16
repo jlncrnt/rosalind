@@ -19,4 +19,3 @@ for i, x in enumerate(lst):
 compl = ''.join(lst)
 
 print(compl)
-

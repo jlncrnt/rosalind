@@ -17,10 +17,11 @@ time for the Rosalind challenge.
 TODO: Refactoring in functional style.
 */
 
-import scala.collection.mutable.Map
+import scala.collection.mutable
 import scala.io.Source
 
-val data_fn = "data/FindingASharedMotif.fasta"
+val dir = System.getProperty("user.dir") + "/linkdir/"
+val data_fn = dir + "data/FindingASharedMotif.fasta"
 val data_fh = Source.fromFile(data_fn)
 
 // Comes from a old piece of code. Don't do this.
@@ -44,7 +45,7 @@ val list = buildlist(data_fh)
 class Node {
   var visited: Boolean = false
   var counter: Int = 0
-  var childs: Map[Char, Node] = Map[Char, Node]()
+  var childs: mutable.Map[Char, Node] = mutable.Map[Char, Node]()
 }
 
 def feedSuffix(N: Node)(suf: String): Node = {
@@ -92,7 +93,7 @@ for (l <- list) {
   val suffixes = l.tails.toList.reverse.tail
   // Make sure all nodes are set du false
   resetTree(root)
-  // Fees all suffixes to the tree
+  // Feed all suffixes to the tree
   for (s <- suffixes) {
     root = feedSuffix(root)(s)
   }

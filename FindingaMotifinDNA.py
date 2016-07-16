@@ -2,7 +2,7 @@
 import regex
 
 # store string and pattern 
-with open("FindingaMotifinDNAData.txt") as data:
+with open("data/FindingMotifinDNA.txt") as data:
     s = data.readline().rstrip()
     p = data.readline().rstrip()
 
@@ -14,5 +14,5 @@ m = list(p.finditer(s, overlapped=True))
 
 # Output format as required
 for e in m:
-    print(e.start()+1,end=' ')
-print()
+    print(e.start()+1, end=' ')
+print("")
