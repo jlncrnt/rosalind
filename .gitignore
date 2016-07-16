@@ -1,5 +1,4 @@
-.gitignore
-.idea/
-tests.sc
-RosalindChallenges.iml
-out/
+/.idea/
+/out/
+/tests.sc
+/RosalindChallenges.iml
