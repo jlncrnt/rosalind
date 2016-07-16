@@ -9,10 +9,15 @@ package helpr
 
 object DNAtoRNA {
 
+
   import scala.annotation.tailrec
 
   def transcribe(str: String): String = {
-    transcribeInner(str.toList)("")
+    // Gosh it was so overkill...
+    // transcribeInner(str.toList)("")
+
+    // Better
+    str.replaceAll("T","U")
   }
 
   @tailrec
@@ -21,4 +26,5 @@ object DNAtoRNA {
     case x::xs => transcribeInner(xs)(acc + x)
     case _ => acc
   }
+
 }
