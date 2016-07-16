@@ -1,0 +1,6 @@
+.gitignore
+.idea/
+tests.sc
+RosalindChallenges.iml
+out/
+classes/
