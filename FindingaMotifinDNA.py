@@ -15,5 +15,4 @@ m = list(p.finditer(s, overlapped=True))
 # Output format as required
 for e in m:
     print(e.start()+1,end=' ')
-
 print()

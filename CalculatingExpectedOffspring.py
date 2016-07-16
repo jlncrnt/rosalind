@@ -2,20 +2,21 @@ from itertools import combinations_with_replacement
 from itertools import product
 import numpy as np
 
-FILE = "data.txt"
+FILE = "data/CalculatingExpectedOffspring.txt"
 
 with open(FILE) as f:
-    # Format of file : <int> <int> <int> <int> <int> <int> (6x)
+    # Format of file : <int> x6
     pops = f.readline().split()
 
 # Possible genotypes
-genotypes = ('AA','Aa','aa')
+genotypes = ('AA', 'Aa', 'aa')
 
 # All possible pairings
 pp = combinations_with_replacement(genotypes,2)
 
 # Make sure its sorted like the problem data file
 pp = sorted(pp)
+
 
 def exp_dom_off(couple, n=2):
     """ Return the expected number of dominant offsprings 
@@ -35,13 +36,13 @@ def exp_dom_off(couple, n=2):
     return (count/len(pool)) * n
 
 # Map expectation function to possible pairings
-tots = list(map(exp_dom_off,pp))
+tots = list(map(exp_dom_off, pp))
 
 # Use numpy to provide easy vectors operations
-tots = np.array(tots,dtype='float64')
-pops = np.array(pops,dtype='float64')
+tots = np.array(tots, dtype='float64')
+pops = np.array(pops, dtype='float64')
 
 # Matrix dot function multiply terms and add them
-res = np.dot(tots,pops)
+res = np.dot(tots, pops)
 
 print(res)

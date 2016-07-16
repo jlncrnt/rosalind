@@ -1,9 +1,10 @@
 /*
     I had to do it in C as I use recursive functions. It is
-    slow in python and take a huge amount of memory... I think
-    recursion is elegant but not very efficient in this case.
+    slow in python and take a huge amount of memory...
+    Recursion is elegant but not very efficient in this case.
     I had to make many tries as this code doesn't process fast enough
-    to finish before challenge's timout, if the values are huge.
+    to finish before challenge's timeout, if the values are huge.
+    Refactoring in Scala needed
 */
 
 #include <stdio.h>

@@ -1,11 +1,10 @@
 import scala.annotation.tailrec
 import scala.io.Source
 import scala.util.matching.Regex
-import java.io._
 
-val data_fn = "data.txt"
-val codons_fn = "codons.txt"
-val out_fn = "out.txt"
+val dir = System.getProperty("user.dir") + "/linkdir/"
+val data_fn = dir + "data/OpenReadingFrames.fasta"
+val codons_fn = dir + "data/DNACodonsTable.txt"
 val data_fh = Source.fromFile(data_fn)
 val codons_fh = Source.fromFile(codons_fn)
 
@@ -47,11 +46,4 @@ case class ProteinFinder(str: String) {
 
 val resList = glist.map(ProteinFinder).map(x => x.find())
 
-def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
-  val p = new java.io.PrintWriter(f)
-  try { op(p) } finally { p.close() }
-}
-
-printToFile(new File(out_fn)) { p =>
-  for(r <- resList) r.foreach(p.println)
-}
+resList.foreach(x => x.foreach(println))

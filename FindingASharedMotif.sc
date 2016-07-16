@@ -20,7 +20,7 @@ TODO: Refactoring in functional style.
 import scala.collection.mutable.Map
 import scala.io.Source
 
-val data_fn = "/home/julien/IdeaProjects/SBTest/data.txt"
+val data_fn = "data/FindingASharedMotif.fasta"
 val data_fh = Source.fromFile(data_fn)
 
 // Comes from a old piece of code. Don't do this.

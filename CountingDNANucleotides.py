@@ -1,18 +1,17 @@
 # Open and read file
-with open('Counting DNA Nucleotides Data.txt') as f:
+with open('data/CountingDNANucleotides.txt') as f:
     dnastr = f.readline()
 
-A=0
-T=0
-G=0
-C=0
+A = 0
+T = 0
+G = 0
+C = 0
 
 # Naive string elements counting
 for symb in dnastr:
-    if(symb=='A'): A += 1
-    elif(symb=='T'): T += 1
-    elif(symb=='G'): G += 1
-    elif(symb=='C'): C += 1
+    if   symb == 'A': A += 1
+    elif symb == 'T': T += 1
+    elif symb == 'G': G += 1
+    elif symb == 'C': C += 1
 
-print(A,C,G,T)
-
+print(A, C, G, T)

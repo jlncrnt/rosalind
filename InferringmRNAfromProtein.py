@@ -2,14 +2,14 @@ import re
 from collections import Counter
  
 # List of amino acids from codons file
-with open("CodonsTable.txt") as codons:
+with open("data/RNACodonsTable.txt") as codons:
     prots = re.compile("\w{3} (\w+)").findall(codons.read())
 
 # Count ocurrence in dict
 ocurrences = Counter(prots)
 
 # Build integer generator over number of codon possibilities for each amino acid
-with open("InferringmRNAfromProteinData.txt") as data:
+with open("data/InferringmRNAfromProteinData.txt") as data:
     intlist = (ocurrences[aa] for aa in data.readline().rstrip())
 
 # Starting with stop codons possibilities

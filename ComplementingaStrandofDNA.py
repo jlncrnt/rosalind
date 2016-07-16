@@ -1,5 +1,5 @@
 # Read data
-with open('Complementing a Strand of DNA Data.txt') as f:
+with open('data/ComplementingaStrandofDNA.txt') as f:
     dnastr = f.readline()
 
 # Reverse string
@@ -9,11 +9,11 @@ rtsand = dnastr[::-1]
 lst = list(rtsand)
 
 # Naively numerate and replace in same list
-for i,x in enumerate(lst):
-    if   (x=='A'): lst[i]='T'
-    elif (x=='C'): lst[i]='G'
-    elif (x=='G'): lst[i]='C'
-    elif (x=='T'): lst[i]='A'
+for i, x in enumerate(lst):
+    if   x == 'A': lst[i] = 'T'
+    elif x == 'C': lst[i] = 'G'
+    elif x == 'G': lst[i] = 'C'
+    elif x == 'T': lst[i] = 'A'
     
 # Array of char to string
 compl = ''.join(lst)

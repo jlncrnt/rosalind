@@ -7,8 +7,7 @@ seqp = re.compile(r'[ATGC]+')
 # Read info pattern
 labp = re.compile(r'>(\w+_\d+)')
 
-
-with open("dataset.fasta") as f:
+with open("data/GC-content.fasta") as f:
     rawlst = f.read().split('\n')
 
 # Key : read info line
@@ -18,11 +17,11 @@ lst = {}
 # Build dict from single line read title
 # and multiline read sequence
 for i in rawlst:
-    if(labp.match(i)):
+    if labp.match(i) :
         curr = i.strip('>')
         lst[curr] = ""
-    if(seqp.match(i)):
-        lst[curr] = lst[curr]+i        
+    if seqp.match(i):
+        lst[curr] += i
         
 # Dict with GC-content
 # Key = label
@@ -33,7 +32,7 @@ def GCperc(seq):
     """ Calculate GC-Content for a given seq.
     Takes a sequence as string and return ratio of G + C
     """
-    n = sum([1 for n in seq if n==('G') or n==('C')])
+    n = sum([1 for n in seq if n == ('G') or n == ('C')])
     return n/len(seq) 
 
 # Could have used a map function here...
@@ -44,5 +43,5 @@ for label, seq in lst.items():
 m = max(perc, key=perc.get)
 
 # Print formatted as required by challenge
-print("{}\n{}".format(m,perc[m]*100))
+print("{}\n{}".format(m, perc[m]*100))
 

@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 from itertools import permutations
 from math import factorial
 
@@ -7,7 +5,7 @@ from math import factorial
 n = 6
 
 # Build a list of numbers 
-numbers = list(range(1,n+1))
+numbers = list(range(1, n+1))
 
 # Possible permutations
 perms = permutations(numbers)
