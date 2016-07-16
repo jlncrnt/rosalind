@@ -1,6 +1,6 @@
 from Bio import SeqIO
 
-# Generator over seqs
+# Generator over seqs in file provided
 seqs = SeqIO.parse(open("OverlapGraphsData.txt"),'fasta')
 
 # Dict of (seqID,(seqSTART,seqEND)) foreach seq
