@@ -12,11 +12,10 @@ with open(FILE) as f:
 genotypes = ('AA', 'Aa', 'aa')
 
 # All possible pairings
-pp = combinations_with_replacement(genotypes,2)
+pp = combinations_with_replacement(genotypes, 2)
 
 # Make sure its sorted like the problem data file
 pp = sorted(pp)
-
 
 def exp_dom_off(couple, n=2):
     """ Return the expected number of dominant offsprings 
