@@ -12,6 +12,16 @@ object FastaParser {
     parserInner(Source.fromFile(filename).getLines())("")(List[(String,String)]())("")
   }
 
+  def getRawString(filename: String): String = {
+
+    def buildRaw(fasta: List[(String,String)])(str: String): String = fasta match {
+      case x::xs => buildRaw(xs)(str ++ x._2)
+      case Nil => str
+    }
+
+    buildRaw(parse(filename))("")
+  }
+
   @tailrec
   private def parserInner(lines: Iterator[String])
                          (acc: String)
