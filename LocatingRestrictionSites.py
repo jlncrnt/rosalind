@@ -17,7 +17,7 @@ all = []
 # For each demanded pattern length (4-12)
 # (!) need 12+1 to include 12-nt patterns
 # Only even numbers
-for j in range(4,12+1,2):
+for j in range(4, 12+1, 2):
     # Go through string, stopping at last
     # pos the current pattern can fit
     for i in range(len(seq)-j+1):
