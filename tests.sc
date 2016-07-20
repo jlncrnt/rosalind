@@ -17,3 +17,4 @@ def plainOldSum(x: Int)(y: Int) = x + y
 def onePlus = plainOldSum(1)(_)
 
 onePlus(4)
+
