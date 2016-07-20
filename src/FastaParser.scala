@@ -12,6 +12,10 @@ object FastaParser {
     parserInner(Source.fromFile(filename).getLines())("")(List[(String,String)]())("")
   }
 
+  def parseString(str: String) = {
+    parserInner(str.split("\n").iterator)("")(List[(String,String)]())("")
+  }
+
   def getRawString(filename: String): String = {
 
     def buildRaw(fasta: List[(String,String)])(str: String): String = fasta match {
