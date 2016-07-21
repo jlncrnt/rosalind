@@ -44,4 +44,3 @@ m = max(perc, key=perc.get)
 
 # Print formatted as required by challenge
 print("{}\n{}".format(m, perc[m]*100))
-

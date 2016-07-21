@@ -11,3 +11,4 @@ def indices(seq: List[Char])(subseq: List[Char])(idcs: List[Int])(i:Int): List[I
 }
 
 indices(seq.toList)(subseq.toList)(List[Int]())(1)
+

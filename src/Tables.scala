@@ -2,6 +2,9 @@
 /**
   * Created by julien on 19.07.16.
   */
+
+package helpr
+
 object Tables {
 
   import scala.util.matching.Regex

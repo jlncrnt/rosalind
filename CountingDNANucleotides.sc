@@ -9,3 +9,4 @@ ListMap(dna.groupBy(identity)
            .sortWith(_._1 < _._1):_*)
            .values
            .mkString(" ")
+

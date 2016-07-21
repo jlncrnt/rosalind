@@ -1,5 +1,6 @@
 import scala.annotation.tailrec
 import scala.io.Source
+import helpr.Tables
 
 val map = Tables.RNA map { case (a,b) => ((a(0),a(1),a(2)), b(0)) }
 

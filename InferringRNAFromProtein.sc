@@ -1,4 +1,5 @@
 import scala.io.Source
+import helpr.Tables
 
 val RNAtable = Tables.RNA
 

@@ -19,3 +19,4 @@ def fact(n: BigInt): BigInt = {
 }
 
 fact(n)/fact(n-k) % 1000000
+
