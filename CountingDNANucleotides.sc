@@ -1,7 +1,10 @@
 import scala.collection.immutable.ListMap
 import scala.io.Source
 
-val dna = Source.fromFile("/home/julien/Desktop/RosalindChallenges/data/CountingDNANucleotides.txt").mkString
+val dir = System.getProperty("user.dir") + "/linkdir/"
+val data_fn = dir + "data/CountingDNANucleotides.txt"
+
+val dna = Source.fromFile(data_fn).mkString
 
 // Build a listMap from grouped nucleotides
 ListMap(dna.groupBy(identity)
