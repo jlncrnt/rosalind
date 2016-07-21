@@ -1,5 +1,5 @@
 /*
-This is a draft for Rosalind's "Finding a Shared Motif"
+This is a (working) draft for Rosalind's "Finding a Shared Motif"
 I wanted to use a custom impl. of a Generalised Suffix Tree (GST)
 ----
 Very Un-Functional implementation of a GST.
@@ -10,8 +10,9 @@ After feeding a string of DNA, we prune all not visited Node,
   because those nodes are not substrings of the last DNA string.
 We then reset the tree and feed suffixes for all DNA strings.
 ----
-High use of mutability, and using two pre-order tree traversal for pruning
-and resetting for each DNA string... The algorithm still executes in the given
+High use of mutability, and two pre-order tree traversal for pruning
+and resetting for each DNA string... With pruning, the stack
+doesn't get to big. The algorithm still executes in the given
 time for the Rosalind challenge.
 ----
 TODO: Refactoring in functional style.
@@ -91,7 +92,7 @@ var root: Node = new Node()
 for (l <- list) {
   // Make a list of all it's suffixes
   val suffixes = l.tails.toList.reverse.tail
-  // Make sure all nodes are set du false
+  // Make sure all nodes are set to false
   resetTree(root)
   // Feed all suffixes to the tree
   for (s <- suffixes) {
