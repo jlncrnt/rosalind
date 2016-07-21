@@ -1,20 +1,8 @@
-
-object FileMatcher {
-
-  def fileMatcher(matcher: String => Boolean) = {
-    for (file <- new java.io.File(".").listFiles(); if matcher(file.getName))
-      yield file
-  }
-
-  def fileEndWith(query: String) =
-    fileMatcher(_.endsWith(query))
+implicit class Crossable[X](xs: Traversable[X]) {
+  def cross[Y](ys: Traversable[Y]) = for { x <- xs; y <- ys } yield (x, y)
 }
 
-FileMatcher.fileEndWith("n")
+val xs = Seq('A','A')
+val ys = List("hello", "world", "bye")
 
-def plainOldSum(x: Int)(y: Int) = x + y
-
-def onePlus = plainOldSum(1)(_)
-
-onePlus(4)
-
+xs cross ys
