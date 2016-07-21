@@ -3,7 +3,7 @@ import helpr.FastaParser
 val dir = System.getProperty("user.dir") + "/linkdir/"
 val fn = dir + "data/FindingASharedSplicedMotif.fasta"
 
-val lst = FastaParser.parse(fn)
+val lst = FastaParser.parseDNA(fn)
 
 // Match on both strings
 def LCS(str1: String, str2: String): String = (str1, str2) match {
