@@ -6,14 +6,13 @@ package helpr
 
 object FastaParser {
   import scala.annotation.tailrec
+  import scala.io.Source
 
   def parseDNA(filename: String) = {
-    import scala.io.Source
     parserInner(Source.fromFile(filename).getLines())("")(List[(String,String)]())("")("[ATGC]+")
   }
 
   def parseUniprot(str: String) = {
-    import scala.io.Source
     parserInner(str.split("\n").iterator)("")(List[(String,String)]())("")("^[FLSYCWLPHQRIMTNKVADEG]+$")
   }
 
