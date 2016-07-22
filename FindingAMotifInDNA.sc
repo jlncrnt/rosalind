@@ -1,6 +1,9 @@
 import scala.io.Source
 
-val lines = Source.fromFile("data.txt").getLines()
+val dir = System.getProperty("user.dir") + "/linkdir/"
+val data_fn = dir + "data/FindingMotifinDNA.txt"
+
+val lines = Source.fromFile(data_fn).getLines()
 
 val DNA = lines.next()
 val rawSEQ = lines.next()
