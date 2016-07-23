@@ -1,4 +1,3 @@
-
 import helpr.FastaParser
 
 import scala.annotation.tailrec

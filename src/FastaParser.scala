@@ -17,7 +17,7 @@ object FastaParser {
   }
 
   def parseString(str: String) = {
-    parserInner(str.split("\n").iterator)("")(List[(String,String)]())("")("[ATGC]+")
+    parserInner(str.split('\n').iterator)("")(List[(String,String)]())("")("[ATGC]+")
   }
 
   def getRawString(filename: String): String = {
