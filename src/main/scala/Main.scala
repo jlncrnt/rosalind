@@ -1,3 +1,3 @@
 object Main extends App {
-  challenges.OrderingStringsofVaryingLengthLexicographically.result()
+  challenges.CompletingaTree.result
 }
