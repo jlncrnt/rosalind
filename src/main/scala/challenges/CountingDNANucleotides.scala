@@ -5,7 +5,7 @@ object CountingDNANucleotides extends Challenge("CountingDNANucleotides.txt") {
   import scala.collection.immutable.ListMap
 
   // Build a listMap from grouped nucleotides
-  def result(d: String = data) = ListMap(d.groupBy(identity)
+  def result(data: String = data) = ListMap(data.groupBy(identity)
     // Find each group length
     .mapValues(_.length)
     // Cast to Seq to be able to sort it

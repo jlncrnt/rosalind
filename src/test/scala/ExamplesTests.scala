@@ -10,7 +10,7 @@ class ExamplesTests extends FlatSpec {
 
   "Counting DNA Nucleotide" should "equal 20 12 17 21 in Rosalind example" in {
     val exampleData = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
-    val r = challenges.CountingDNANucleotides.result(d = exampleData)
+    val r = challenges.CountingDNANucleotides.result(data = exampleData)
     assert(r == "20 12 17 21")
   }
 
