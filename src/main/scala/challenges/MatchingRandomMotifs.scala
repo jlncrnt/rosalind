@@ -18,7 +18,7 @@ object MatchingRandomMotifs extends Challenge("MatchingRandomMotifs.txt") {
     // Probability to find one matching string in N attempt
     val pfind = 1-npneq
 
-    (pfind * 1000).round / 1000.0
+    ((pfind * 1000).round / 1000.0).toString
 
   }
 

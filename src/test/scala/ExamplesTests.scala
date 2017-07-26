@@ -14,4 +14,10 @@ class ExamplesTests extends FlatSpec {
     assert(r == "20 12 17 21")
   }
 
+  "Matching random motifs" should "equal 0.689 in Rosalind example" in {
+    val exampleData = "90000 0.6\nATAGCCGA"
+    val r = challenges.MatchingRandomMotifs.result(exampleData)
+    assert(r == "0.689")
+  }
+
 }
