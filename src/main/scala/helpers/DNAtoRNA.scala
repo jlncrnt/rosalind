@@ -5,10 +5,9 @@
   * Created by julien on 16.07.16.
   */
 
-package helpr
+package helpers
 
 object DNAtoRNA {
-
 
   import scala.annotation.tailrec
 

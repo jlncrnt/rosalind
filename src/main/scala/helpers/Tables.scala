@@ -3,7 +3,7 @@
   * Created by julien on 19.07.16.
   */
 
-package helpr
+package helpers
 
 object Tables {
 

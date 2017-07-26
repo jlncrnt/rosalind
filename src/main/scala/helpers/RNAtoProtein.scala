@@ -2,9 +2,9 @@
   * Created by julien on 16.07.16.
   */
 
-package helpr
+package helpers
 
-object RNAToProtein {
+object RNAtoProtein {
 
   import scala.annotation.tailrec
   import scala.util.matching.Regex

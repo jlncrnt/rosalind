@@ -2,7 +2,7 @@
   * Created by julien on 16.07.16.
   */
 
-package helpr
+package helpers
 
 object FastaParser {
   import scala.annotation.tailrec
