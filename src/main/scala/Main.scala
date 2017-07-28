@@ -1,3 +1,3 @@
 object Main extends App {
-  challenges.CompletingaTree.result
+  println(challenges.GenomeAssemblyasShortestSuperstring.result)
 }
