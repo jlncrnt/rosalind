@@ -18,6 +18,7 @@ object GenomeAssemblyasShortestSuperstring extends Challenge("GenomeAssemblyasSh
   @scala.annotation.tailrec
   def loop(chunks: List[String]): String = {
     if(chunks.length < 2) chunks.head else {
+      println("Getting combs")
       val combs = chunks.combinations(2) map { case List(a, b) => (a, b) }
       println("Loop")
       loop(combs.toList.par.flatMap(overlaps).toList)
