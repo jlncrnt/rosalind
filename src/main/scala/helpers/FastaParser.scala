@@ -4,21 +4,14 @@
 
 package helpers
 
+import scala.io.BufferedSource
+
 object FastaParser {
 
-  import resource._
-
   import scala.annotation.tailrec
-  import scala.io.Source
 
-  def parseDNA(filename: String): List[(String, String)] = {
-    val r = managed(Source.fromFile(filename)) map { input =>
-      parserInner(input.getLines())("")(List[(String, String)]())("")("[ATGC]+")
-    }
-    r.opt match {
-      case Some(list) => list
-      case None => throw new Exception("Problem reading file")
-    }
+  def parseDNA(source: BufferedSource): List[(String, String)] = {
+      parserInner(source.getLines)("")(List[(String, String)]())("")("[ATGC]+")
   }
 
   def parseUniprot(str: String) = {
@@ -29,14 +22,14 @@ object FastaParser {
     parserInner(str.split('\n').iterator)("")(List[(String, String)]())("")("[ATGC]+")
   }
 
-  def getRawString(filename: String): String = {
+  def getRawString(source: BufferedSource): String = {
 
     def buildRaw(fasta: List[(String, String)])(str: String): String = fasta match {
       case x :: xs => buildRaw(xs)(str ++ x._2)
       case Nil => str
     }
 
-    buildRaw(parseDNA(filename))("")
+    buildRaw(parseDNA(source))("")
 
   }
 

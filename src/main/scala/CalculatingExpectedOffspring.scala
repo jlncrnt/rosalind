@@ -1,6 +1,6 @@
-package challenges
+import helpers.Challenge
 
-object CalculatingExpectedOffspring extends Challenge("CalculatingExpectedOffspring.txt") {
+object CalculatingExpectedOffspring extends App {
 
   // Class to find all genotypes when crossing alleles
   implicit class Crossable[X](xs: Traversable[X]) {
@@ -31,9 +31,14 @@ object CalculatingExpectedOffspring extends Challenge("CalculatingExpectedOffspr
   private val probs = possible_breedings.map(prob).map(_ * 2)
 
   // Multiply each pop by its prob and sum it all
-  def result(data: String = data) = {
-    val d = data.split(" ").map(_.toInt)
-    (probs zip d map { case (a, b) => a * b } sum).toString
+  Challenge("CalculatingExpectedOffspring.txt") provides { data =>
+
+    val d = data.mkString.split(" ").map(_.toInt)
+
+    val result = (probs zip d map { case (a, b) => a * b } sum).toString
+
+    println(result)
+
   }
 
 }
