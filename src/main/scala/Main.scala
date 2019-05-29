@@ -1,3 +1,5 @@
 object Main extends App {
-  println(challenges.GenomeAssemblyasShortestSuperstring.result)
+
+  println(challenges.CalculatingExpectedOffspring)
+
 }
