@@ -8,4 +8,4 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.7" % Test
 
 libraryDependencies += "com.jsuereth" %% "scala-arm" % "2.0"
 
-libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.14"
+libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.27"
