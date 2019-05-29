@@ -21,7 +21,7 @@ object FindingASharedSplicedMotif extends App {
         if (l1.length > l2.length) l1 else l2
     }
 
-    println(LCS(lst(0)._2, lst(1)._2))
+    println(LCS(lst.head._2, lst(1)._2))
 
   }
 

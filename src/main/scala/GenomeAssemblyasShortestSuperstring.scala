@@ -10,20 +10,18 @@ object GenomeAssemblyasShortestSuperstring extends App {
 
     println("Number of chunks : " + chunks.size)
 
-    val min = chunks.head.size / 2
-
-    var i = 0
+    val min = chunks.head.length / 2
 
     def overlaps(tu: (String, String)): Option[List[String]] = {
       val (a, b) = tu
       lazy val o = a.tails.filter(_.length >= min).find(b.startsWith)
       lazy val p = b.tails.filter(_.length >= min).find(a.startsWith)
       if (o.isDefined) {
-        println("O is defined");
+        println("O is defined")
         Some(List(a.dropRight(o.get.length) + b))
       }
       else if (p.isDefined) {
-        println("P is defined");
+        println("P is defined")
         Some(List(b.dropRight(p.get.length) + a))
       }
       else Some(List(a, b))

@@ -14,11 +14,11 @@ object FastaParser {
       parserInner(source.getLines)("")(List[(String, String)]())("")("[ATGC]+")
   }
 
-  def parseUniprot(str: String) = {
+  def parseUniprot(str: String): List[(String, String)]= {
     parserInner(str.split("\n").iterator)("")(List[(String, String)]())("")("^[FLSYCWLPHQRIMTNKVADEG]+$")
   }
 
-  def parseString(str: String) = {
+  def parseString(str: String): List[(String, String)] = {
     parserInner(str.split('\n').iterator)("")(List[(String, String)]())("")("[ATGC]+")
   }
 

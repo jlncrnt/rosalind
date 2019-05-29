@@ -5,7 +5,7 @@ object MatchingRandomMotifs extends App {
   Challenge("MatchingRandomMotifs.txt") provides { data =>
 
     val (n, gc, dna) = data.mkString.split("\\n|\\s") match {
-      case Array(n, g, d) => (n.toInt, g.toDouble, d)
+      case Array(a, g, d) => (a.toInt, g.toDouble, d)
     }
 
     val m = "ATGC" zip List((1 - gc) / 2, (1 - gc) / 2, gc / 2, gc / 2)

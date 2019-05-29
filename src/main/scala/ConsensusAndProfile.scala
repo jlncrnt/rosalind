@@ -17,7 +17,7 @@ object ConsensusAndProfile extends App {
     }
 
     // Dont trust transpose when using non sortable items... (!!!)
-    val profile = reads.map(counts) map { case m => m.toList.sortBy(_._1) }
+    val profile = reads.map(counts) map { _.toList.sortBy(_._1) }
 
     println(profile.map(x => x.maxBy(_._2)._1).mkString)
 

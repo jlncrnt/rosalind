@@ -4,7 +4,7 @@ object CalculatingExpectedOffspring extends App {
 
   // Class to find all genotypes when crossing alleles
   implicit class Crossable[X](xs: Traversable[X]) {
-    def breed[Y](ys: Traversable[Y]) = for {x <- xs; y <- ys} yield (x, y)
+    def breed[Y](ys: Traversable[Y]): Traversable[(X,Y)] = for {x <- xs; y <- ys} yield (x, y)
   }
 
   // Probability for a couple to have a dominant allele for one offspring

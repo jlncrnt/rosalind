@@ -74,7 +74,7 @@ object FindingASharedMotif extends App {
     def resetTree(N: Node): Unit = {
       N.visited = false
       if (N.childs.nonEmpty) {
-        for ((k, v) <- N.childs) {
+        for ((_, v) <- N.childs) {
           resetTree(v)
         }
       }

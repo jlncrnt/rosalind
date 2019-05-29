@@ -42,11 +42,11 @@ object OpenReadingFrames extends App {
             case None => findMet(b :: c :: tail)
           }
           // If no met found here, slide window of 1 nt
-          case a :: b :: c :: tail => {
-            findMet(b :: c :: tail)
-          }
+          case _ :: b :: c :: tail => findMet(b :: c :: tail)
+
           // Return empty list of string to concatenate
-          case _ => List[String]()
+          case _ => List.empty
+
         }
 
         // Tail recursively build protein. Take DNA char list from where it's called in findMet
@@ -54,7 +54,7 @@ object OpenReadingFrames extends App {
         @tailrec
         private def buildProteinFrom(lst: List[Char])(prot: String): Option[String] = lst match {
           // If codon is stop, return prot
-          case a :: b :: c :: tail if codonMap(List(a, b, c).mkString) == "Stop" => Some(prot)
+          case a :: b :: c :: _ if codonMap(List(a, b, c).mkString) == "Stop" => Some(prot)
           // If not stop, call recursively on next 3 codons and concatenate corresponding Amino Acid.
           case a :: b :: c :: tail => buildProteinFrom(tail)(prot + codonMap(List(a, b, c).mkString))
           // Return None as return type is Option
@@ -62,7 +62,7 @@ object OpenReadingFrames extends App {
         }
 
         // Concatenate list of prot in 5' and 3' directions and remove doublons
-        def find() = (findMet(str.toList) ::: findMet(str.map(x => compl(x)).reverse.toList)).distinct
+        def find(): List[String] = (findMet(str.toList) ::: findMet(str.map(x => compl(x)).reverse.toList)).distinct
       }
 
       // Instanciate a protein finder for each DNA string and call find() method on each of them

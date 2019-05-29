@@ -6,7 +6,7 @@ object RNASplicing extends App {
 
     val l = FastaParser.parseDNA(data)
 
-    var DNA = l(0)._2
+    var DNA = l.head._2
     val exons = l.drop(1).map(x => x._2)
 
     // Strip strand based on exon string

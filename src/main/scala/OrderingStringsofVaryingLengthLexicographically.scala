@@ -4,8 +4,8 @@ object OrderingStringsofVaryingLengthLexicographically extends App {
 
   Challenge("OrderingStringsofVaryingLengthLexicographically.txt") provides { data =>
 
-    val data = "D N A\n3".split("\\n|\\s").toList
-    val (alphabet, n) = (data.init, data.last.toInt)
+    val d = data.mkString.split("\\n|\\s").toList
+    val (alphabet, n) = (d.init, d.last.toInt)
 
     def loop(p: String)(d: Int): Unit = if (d >= 0) {
       println(p)

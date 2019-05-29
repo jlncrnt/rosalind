@@ -26,12 +26,12 @@ object FindingAProteinMotif extends App {
     def returnlocs(prot: String): List[Int] = {
       @tailrec
       def locations(s: List[Char])(acc: List[Int])(idx: Int): List[Int] = s match {
-        case a :: b :: c :: d :: xs if
+        case a :: b :: c :: d :: _ if
         a == 'N' &&
           b != 'P' &&
           (c == 'S' || c == 'T') &&
           d != 'P' => locations(s.tail)(idx :: acc)(idx + 1)
-        case a :: b :: c :: d :: xs => locations(s.tail)(acc)(idx + 1)
+        case _ :: _ :: _ :: _ :: _ => locations(s.tail)(acc)(idx + 1)
         case _ => acc.reverse
       }
 
