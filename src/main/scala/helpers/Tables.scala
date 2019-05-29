@@ -9,9 +9,9 @@ object Tables {
 
   import scala.util.matching.Regex
 
-  def DNA = codonMap
+  def DNA: Map[String, String] = codonMap
 
-  def RNA = codonMap map {case (a,b) => (a.replace('T','U'),b) }
+  def RNA: Map[String, String] = codonMap map {case (a,b) => (a.replace('T','U'),b) }
 
   private val RAWTable = """TTT F      CTT L      ATT I      GTT V
                            |TTC F      CTC L      ATC I      GTC V
@@ -37,6 +37,6 @@ object Tables {
   private val allMatches = pattern.findAllMatchIn(RAWTable.mkString)
 
   // Build map of Codon -> (Amino Acid | Stop)
-  private val codonMap = (for (i <- allMatches) yield (i.group(1), i.group(2))).toMap
+  private val codonMap: Map[String, String] = (for (i <- allMatches) yield (i.group(1), i.group(2))).toMap
 
 }
